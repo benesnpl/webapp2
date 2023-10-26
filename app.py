@@ -9,11 +9,11 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 app = Flask(__name__)
 app.secret_key = 'fr1992'  # Set a secret key for session management
 
-@app.route('/panorama')
+@app.route('/')
 def index():
     return render_template('login.html')
 
-@app.route('/panorama/login', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     try:
         username = request.form['username']
@@ -45,7 +45,7 @@ def login():
     except Exception as e:
         return "An error occurred: " + str(e)
 
-@app.route('/panorama/template_input', methods=['GET', 'POST'])
+@app.route('/template_input', methods=['GET', 'POST'])
 def template_input():
     spoke = []
     if request.method == 'POST':
@@ -78,7 +78,7 @@ def template_input():
         return redirect(url_for('main_menu'))
     return render_template('template_input.html')
     
-@app.route('/panorama/network', methods=['POST'])
+@app.route('/network', methods=['POST'])
 def network(username, password, coid, cloud, template, dg, dg_parent, api_key_variable, gwprivate, gwpublic):
     try:
         username = session.get('username')
@@ -838,7 +838,7 @@ def network(username, password, coid, cloud, template, dg, dg_parent, api_key_va
     except Exception as e:
         return "An error occurred: " + str(e)  # Handle errors gracefully
 
-@app.route('/panorama/security', methods=['POST'])
+@app.route('/security', methods=['POST'])
 def sec_profiles(username,password,coid,cloud,template,dg,dg_parent,api_key_variable):
     try:
         
@@ -1423,7 +1423,7 @@ def sec_profiles(username,password,coid,cloud,template,dg,dg_parent,api_key_vari
     except Exception as e:
         return "An error occurred: " + str(e)            
 
-@app.route('/panorama/address', methods=['POST'])
+@app.route('/address', methods=['POST'])
 def address(username,password,coid,cloud,template,dg,dg_parent,api_key_variable, spoke):
     
         
@@ -1584,7 +1584,7 @@ def address(username,password,coid,cloud,template,dg,dg_parent,api_key_variable,
     print(f"Response Content: {response.content.decode('utf-8')}")
 
 
-@app.route('/panorama/policies', methods=['POST'])
+@app.route('/policies', methods=['POST'])
 def policies(username,password,coid,cloud,template,dg,dg_parent,api_key_variable):
     
         
@@ -2243,7 +2243,7 @@ def policies(username,password,coid,cloud,template,dg,dg_parent,api_key_variable
     print(response.status_code)
     print(response.text)
 
-@app.route('/panorama/main_menu', methods=['GET', 'POST'])
+@app.route('/main_menu', methods=['GET', 'POST'])
 def main_menu():
     username = session.get('username')
     password = session.get('password')
