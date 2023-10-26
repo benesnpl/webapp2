@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Environment Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://employerfilesprod.blob.core.windows.net/useruploads/271757/company/2409/img-1654848307957" alt="Protera Technologies Image" width="300" height="200">
+    <h1>Environment Input</h1>
+    <form method="POST" action="/panorama/template_input">
+        <label for="template">Template:</label>
+        <textarea id="template" name="template" rows="2" cols="10" required></textarea>
+
+        <label for="cloud">Cloud (AWS or Azure):</label>
+        <input type="text" id="cloud" name="cloud" required>
+
+        <label for="coid">COID:</label>
+        <input type="text" id="coid" name="coid" required>
+
+        <label for="gwprivate">Private Subnet Gateway IP:</label>
+        <input type="text" id="gwprivate" name="gwprivate" required>
+
+        <label for="gwpublic">Public Subnet Gateway IP:</label>
+        <input type="text" id="gwpublic" name="gwpublic" required>
+
+        <label for="public">Public Subnet IP/Mask:</label>
+        <input type="text" id="public" name="public" required>
+
+        <label for="private">Private Subnet IP/Mask:</label>
+        <input type="text" id="private" name="private" required>
+
+        <label for="spoke_input">Spoke Subnets:</label>
+        <textarea id="spoke_input" name="spoke_input" rows="4" cols="50" required></textarea>
+
+        <label for="prjnum">Project Number:</label>
+        <input type="text" id="prjnum" name="prjnum" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
