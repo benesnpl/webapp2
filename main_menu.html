@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Set a combination of white and cream */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        h1 {
+            font-size: 36px;
+            font-family: 'Your Font Name', sans-serif;
+            text-align: center;
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 5px 0;
+            text-align: center;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family: 'Your Font Name', sans-serif;">Main Menu</h1>
+        <p><strong>You are logged in as:</strong> {{ username }}</p>
+        <p><strong>Selected Template(s):</strong></p>
+        <ul>
+            {% for tmpl in template %}
+            <li>{{ tmpl }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Selected Device Group:</strong> {{ dg }} // Address Objects will be created on: {{ dg_parent }}</p>
+        
+
+        <form action="/panorama/main_menu" method="post">
+            <p><strong><label for="choice">Select an option:</label></strong></p>
+            <button class="button" name="choice" type="submit" value="1">Create customer configuration (new customer build)</button>
+            <button class="button" name="choice" type="submit" value="2">Create Template Configuration (mostly for DR)</button>
+            <button class="button" name="choice" type="submit" value="3">Create Device Group Configuration (should be rarely used for production)</button>
+            <button class="button" name="choice" type="submit" value="4">Quit</button>
+        </form>
+    </div>
+</body>
+</html>
+
