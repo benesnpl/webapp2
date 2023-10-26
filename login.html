@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        /* Centering and background styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #007BFF; /* Blue background color */
+        }
+        
+        /* Form styles */
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        
+        img {
+            width: 200px;
+            height: 150px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/panorama/login">
+        <img src="https://employerfilesprod.blob.core.windows.net/useruploads/271757/company/2409/img-1654848307957" alt="Protera Technologies Image">
+        <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+
